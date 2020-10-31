@@ -4,9 +4,6 @@ dbo = sqlite3.connect("Person.db")
 db = dbo.cursor()
 
 
-# se7brQdRAAWf - GitHub pass
-
-
 class Person:
     def __init__(self, name: str, birthYear: str):
         self.name = name
