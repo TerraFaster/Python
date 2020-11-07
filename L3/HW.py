@@ -2,9 +2,6 @@ import requests
 from typing import Union
 
 class EnginePattern:
-    def __init__(self):
-        pass
-
     def sendRequest(self):
         pass
 
@@ -24,18 +21,16 @@ class ParserPattern:
 
 
 class Engine(EnginePattern):
-    def __init__(self):
-        self.r = None
-
-    def sendRequest(self, number: Union[int, str]):
+    @classmethod
+    def sendRequest(cls, number: Union[int, str]):
         try:
-            self.r = requests.get(f"http://numbersapi.com/{number}")
+            r = requests.get(f"http://numbersapi.com/{number}")
 
         except requests.ConnectionError as e:
-            self.r = None
+            r = None
             raise ConnectionError("No connection.")
 
-        return self.r
+        return r
 
 
 class Crawler(CrawlerPattern):
