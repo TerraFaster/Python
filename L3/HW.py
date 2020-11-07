@@ -41,7 +41,7 @@ class Crawler(CrawlerPattern):
     def getPageData(self, number: Union[int, str] = 0):
         self.number = number
 
-        r = self.Engine.sendRequest(self.number)
+        r = Engine.sendRequest(self.number)
 
         self.data = r.content
 
@@ -64,4 +64,5 @@ class Parser(ParserPattern):
 
 p = Parser()
 
-print(p.parse(int(input("Введите номер: "))))
+while True:
+    print(p.parse(int(input("Введите номер: "))))
